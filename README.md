@@ -15,7 +15,7 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
 - Python 3.8
 - Pytorch 1.9
 - CUDA 11
-- torchvision 0.10.0
+- torchvision 0.10
 
 ## Install
 ```
