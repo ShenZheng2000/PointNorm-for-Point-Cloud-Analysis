@@ -69,7 +69,7 @@ python main.py --model pointNorm
 - [ ] Upload pretrained checkpoints
 - [ ] Polish readme
 
-# BibTeX
+## BibTeX
 Please cite our paper if you find this repository helpful.
 ```
 @article{zheng2022pointnorm,
@@ -80,8 +80,8 @@ Please cite our paper if you find this repository helpful.
 }
 ```
 
-# Contact
+## Contact
 shenzhen@andrew.cmu.edu
 
-# Acknowledgment
+## Acknowledgment
 This repository is heavily based upon [PointMLP](https://github.com/ma-xu/pointMLP-pytorch). We sincerely thank the PointMLP's authors for their excellent work and kind sharing.
