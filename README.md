@@ -20,6 +20,7 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
 - torchvision 0.10
 
 ## Install
+Follow the step below to install the required packages. 
 ```
 # clone this repository
 git clone https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis.git
@@ -31,61 +32,58 @@ pip install pointnet2_ops_lib/.
 ```
 
 ## Datasets
-ModelNet40 and ScanObjectNN will be automatically downloaded with the training command. 
+* ModelNet40 and ScanObjectNN will be automatically downloaded with the training command. 
 
-ShapeNetPart needs to be prepared in the following way.
-
-```
-cd part_segmentation
-mkdir data
-cd data
-wget https://shapenet.cs.stanford.edu/media/shapenetcore_partanno_segmentation_benchmark_v0_normal.zip --no-check-certificate
-unzip shapenetcore_partanno_segmentation_benchmark_v0_normal.zip
-```
+* ShapeNetPart needs to be prepared in the following way.
+  ```
+  cd part_segmentation
+  mkdir data
+  cd data
+  wget https://shapenet.cs.stanford.edu/media/shapenetcore_partanno_segmentation_benchmark_v0_normal.zip --no-check-certificate
+  unzip shapenetcore_partanno_segmentation_benchmark_v0_normal.zip
+  ```
 
 ## Classification on ModelNet40
 * The result at ModelNet40 are volatile. Running the same model with different seeds leads to significantly different results. To alleviate the randomness, you may consider training the model with different seeds for 2-4 times and report the average accuracy as your score. 
 
 * We note that different methods use different voting strategies to promote their classification accuracy (see the paper for details). For fairness, we do not use any voting strategy in the experiments.
 
-Run the following lines in terminal.
-```
-cd classification_ModelNet40
+* With all this in mind, you can run the following lines in terminal.
+  ```
+  cd classification_ModelNet40
 
-# For PointNorm (the full-sized model), run:
-python main.py --model PointNorm_2_2
+  # For PointNorm (the full-sized model), run:
+  python main.py --model PointNorm_2_2
 
-# For PointNorm-Tiny (the lightweight model), run:
-python main.py --model PointNormTiny --embed_dim 32 --res_expansion 0.25
-```
+  # For PointNorm-Tiny (the lightweight model), run:
+  python main.py --model PointNormTiny --embed_dim 32 --res_expansion 0.25
+  ```
 
 ## Classification on ScanObjectNN
 
-Run the following lines in terminal.
+* Run the following lines in terminal.
+  ```
+  cd classification_ScanObjectNN
 
-```
-cd classification_ScanObjectNN
+  # For PointNorm (the full-sized model), run:
+  python main.py --model PointNorm_2_2 --point_norm True --reverse_point_norm True --local_mean True --global_std True
 
-# For PointNorm (the full-sized model), run:
-python main.py --model PointNorm_2_2 --point_norm True --reverse_point_norm True --local_mean True --global_std True
-
-# For PointNorm-Tiny (the lightweight model), run:
-python main.py --model PointNormTiny --point_norm True --reverse_point_norm True --local_mean True --global_std True --embed_dim 32 --res_expansion 0.25
-```
+  # For PointNorm-Tiny (the lightweight model), run:
+  python main.py --model PointNormTiny --point_norm True --reverse_point_norm True --local_mean True --global_std True --embed_dim 32 --res_expansion 0.25
+  ```
 
 ## Part segmentation on ShapeNetPart
 
-Run the following lines in terminal.
+* Run the following lines in terminal.
+  ```
+  cd part_segmentation
 
-```
-cd part_segmentation
+  # For PointNorm (the full-sized model), run:
+  python main.py --model PointNorm --point_norm True --reverse_point_norm True --local_mean True --global_std True
 
-# For PointNorm (the full-sized model), run:
-python main.py --model PointNorm --point_norm True --reverse_point_norm True --local_mean True --global_std True
-
-# For PointNorm-Tiny (the lightweight model), run:
-python main.py --model PointNormTiny --point_norm True --reverse_point_norm True --local_mean True --global_std True --embed_dim 32 --res_expansion 0.25
-```
+  # For PointNorm-Tiny (the lightweight model), run:
+  python main.py --model PointNormTiny --point_norm True --reverse_point_norm True --local_mean True --global_std True --embed_dim 32 --res_expansion 0.25
+  ```
 
 ## TODO-List
 - [x] Upload readme with basic instructions
