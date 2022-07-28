@@ -89,10 +89,10 @@ python main.py --model PointNormTiny --point_norm True --reverse_point_norm True
 
 ## TODO-List
 - [x] Upload readme with basic instructions
-- [x] Upload .py files for classfication at ScanObjectNN
-- [x] Upload .py files for classfication at ModelNet40
-- [ ] Upload .py files for segmentation
-- [ ] Upload .py files for visualization
+- [x] Upload files for classfication at ScanObjectNN
+- [x] Upload files for segmentation at ShapeNetPart
+- [ ] Upload files for classfication at ModelNet40
+- [ ] Upload files for visualization
 - [ ] Upload pretrained checkpoints
 - [ ] Polish readme
 
