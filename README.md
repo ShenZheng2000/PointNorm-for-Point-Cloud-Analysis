@@ -44,9 +44,9 @@ pip install pointnet2_ops_lib/.
   ```
 
 ## Classification on ModelNet40
-* The result at ModelNet40 are volatile. Running the same model with different seeds leads to significantly different results. To alleviate the randomness, you may consider training the model with different seeds for 2-4 times and report the average accuracy as your score. 
+* The results at ModelNet40 are volatile. Running the same model with different seeds leads to significantly different scores. To alleviate the randomness, you may consider training the model with different seeds for 2-4 times and report the average accuracy as your score. 
 
-* We note that different methods use different voting strategies to promote their classification accuracy (see the paper for details). For fairness, we do not use any voting strategy in the experiments.
+* Different methods use different voting strategies to promote their classification accuracy (see the paper for details). For fairness, we do not use any voting strategy in our experiments.
 
 * With all this in mind, you can run the following lines in terminal.
   ```
