@@ -13,9 +13,10 @@ This is the official Pytorch implementation of our paper "PointNorm: Normalizati
 ## Abstract
 Point cloud analysis is challenging due to the irregularity of the point cloud data structure. Existing works typically employ the ad-hoc sampling-grouping operation of PointNet++, followed by sophisticated local and/or global feature extractors for leveraging the 3D geometry of the point cloud. Unfortunately, those intricate hand-crafted model designs have led to poor inference latency and performance saturation in the last few years. In this paper, we point out that the classical sampling-grouping operations on the irregular point cloud cause learning difficulty for the subsequent MLP layers. To reduce the irregularity of the point cloud, we introduce a DualNorm module after the sampling-grouping operation. The DualNorm module consists of Point Normalization, which normalizes the grouped points to the sampled points, and Reverse Point Normalization, which normalizes the sampled points to the grouped points. The proposed PointNorm utilizes local mean and global standard deviation to benefit from both local and global features while maintaining a faithful inference speed. Experiments on point cloud classification show that we achieved state-of-the-art accuracy on ModelNet40 and ScanObjectNN datasets. We also generalize our model to point cloud part segmentation and demonstrate competitive performance on the ShapeNetPart dataset.
 
-## Key Ideas (TODO)
+## Key Ideas
+* [Intuition](https://github.com/shenzheng2000/pointnorm-for-point-cloud-analysis/blob/main/Figures/Model_Head.pdf)
 
-## Qualitative Results (TODO)
+* [Workflow](https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis/blob/main/Figures/Model_WorkFlow.pdf)
 
 
 ## Dependencies
