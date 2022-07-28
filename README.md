@@ -56,7 +56,7 @@ cd classification_ModelNet40
 python main.py --model PointNorm_2_2 --point_norm True --reverse_point_norm True --local_mean True --global_std True
 
 # For PointNorm-Tiny (the lightweight model), run:
-python main.py --model PointNormTiny --point_norm True --reverse_point_norm True --local_mean True --global_std True
+python main.py --model PointNormTiny --point_norm True --reverse_point_norm True --local_mean True --global_std True --embed_dim 32 --res_expansion 0.25
 ```
 
 ## Classification on ScanObjectNN
@@ -70,7 +70,7 @@ cd classification_ScanObjectNN
 python main.py --model PointNorm_2_2 --point_norm True --reverse_point_norm True --local_mean True --global_std True
 
 # For PointNorm-Tiny (the lightweight model), run:
-python main.py --model PointNormTiny --point_norm True --reverse_point_norm True --local_mean True --global_std True
+python main.py --model PointNormTiny --point_norm True --reverse_point_norm True --local_mean True --global_std True --embed_dim 32 --res_expansion 0.25
 ```
 
 ## Part segmentation on ShapeNetPart
@@ -84,7 +84,7 @@ cd part_segmentation
 python main.py --model PointNorm_2_2 --point_norm True --reverse_point_norm True --local_mean True --global_std True
 
 # For PointNorm-Tiny (the lightweight model), run:
-python main.py --model PointNormTiny --point_norm True --reverse_point_norm True --local_mean True --global_std True
+python main.py --model PointNormTiny --point_norm True --reverse_point_norm True --local_mean True --global_std True --embed_dim 32 --res_expansion 0.25
 ```
 
 ## TODO-List
