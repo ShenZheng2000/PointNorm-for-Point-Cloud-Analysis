@@ -47,21 +47,29 @@ unzip shapenetcore_partanno_segmentation_benchmark_v0_normal.zip
 Note that we do NOT use the voting strategy since different voting strategies lead to unfair model comparisons.
 ```
 cd classification_ModelNet40
-python main.py --model pointNorm
-python main.py --model pointNormTiny
+python main.py --model PointNorm_2_2
+python main.py --model PointNormTiny
 ```
 
 ## Classification on ScanObjectNN
+First, enter the correponding folder for ScanObjectNN
 ```
 cd classification_ScanObjectNN
-python main.py --model pointNorm
-python main.py --model pointNormTiny
+```
+
+For PointNorm (the full-size model), run:
+```
+python main.py --model PointNorm_2_2 --point_norm True --reverse_point_norm True --local_mean True --global_std True
+```
+
+For PointNorm-Tiny (the lightweight model), run:
+python main.py --model PointNormTiny --point_norm True --reverse_point_norm True --local_mean True --global_std True
 ```
 
 ## Part segmentation on ShapeNetPart
 ```
 cd part_segmentation
-python main.py --model pointNorm
+python main.py --model PointNorm_2_2
 ```
 
 ## TODO-List
