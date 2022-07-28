@@ -44,37 +44,53 @@ unzip shapenetcore_partanno_segmentation_benchmark_v0_normal.zip
 ```
 
 ## Classification on ModelNet40
-Note that we do NOT use the voting strategy since different voting strategies lead to unfair model comparisons.
+* The result at ModelNet40 are volatile. Running the same model with different seeds leads to significantly different results. To alleviate the randomness, you may consider training the model with different seeds for 2-4 times and report the average accuracy as your score. 
+
+* We note that different methods use different voting strategies to promote their classification accuracy (see the paper for details). For fairness, we do not use any voting strategy in the experiments.
+
+Run the following lines in terminal.
 ```
 cd classification_ModelNet40
-python main.py --model PointNorm_2_2
-python main.py --model PointNormTiny
+
+# For PointNorm (the full-sized model), run:
+python main.py --model PointNorm_2_2 --point_norm True --reverse_point_norm True --local_mean True --global_std True
+
+# For PointNorm-Tiny (the lightweight model), run:
+python main.py --model PointNormTiny --point_norm True --reverse_point_norm True --local_mean True --global_std True
 ```
 
 ## Classification on ScanObjectNN
-First, enter the correponding folder for ScanObjectNN
+
+Run the following lines in terminal.
+
 ```
 cd classification_ScanObjectNN
-```
 
-For PointNorm (the full-size model), run:
-```
+# For PointNorm (the full-sized model), run:
 python main.py --model PointNorm_2_2 --point_norm True --reverse_point_norm True --local_mean True --global_std True
-```
 
-For PointNorm-Tiny (the lightweight model), run:
+# For PointNorm-Tiny (the lightweight model), run:
 python main.py --model PointNormTiny --point_norm True --reverse_point_norm True --local_mean True --global_std True
 ```
 
 ## Part segmentation on ShapeNetPart
+
+Run the following lines in terminal.
+
 ```
 cd part_segmentation
-python main.py --model PointNorm_2_2
+
+# For PointNorm (the full-sized model), run:
+python main.py --model PointNorm_2_2 --point_norm True --reverse_point_norm True --local_mean True --global_std True
+
+# For PointNorm-Tiny (the lightweight model), run:
+python main.py --model PointNormTiny --point_norm True --reverse_point_norm True --local_mean True --global_std True
 ```
 
 ## TODO-List
 - [x] Upload readme with basic instructions
-- [ ] Upload .py files for classfication
+- [x] Upload .py files for classfication at ScanObjectNN
+- [x] Upload .py files for classfication at ModelNet40
 - [ ] Upload .py files for segmentation
 - [ ] Upload .py files for visualization
 - [ ] Upload pretrained checkpoints
