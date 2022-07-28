@@ -26,16 +26,16 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
 - torchvision 0.10
 
 ## Install
-Follow the step below to install the required packages. 
-```
-# clone this repository
-git clone https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis.git
-cd PointNorm-for-Point-Cloud-Analysis
+  * Follow the step below to install the required packages. 
+    ```
+    # clone this repository
+    git clone https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis.git
+    cd PointNorm-for-Point-Cloud-Analysis
 
-# install required packages
-pip install cycler einops h5py pyyaml==5.4.1 scikit-learn==0.24.2 scipy tqdm matplotlib==3.4.2
-pip install pointnet2_ops_lib/.
-```
+    # install required packages
+    pip install cycler einops h5py pyyaml==5.4.1 scikit-learn==0.24.2 scipy tqdm matplotlib==3.4.2
+    pip install pointnet2_ops_lib/.
+    ```
 
 ## Datasets
 * ModelNet40 and ScanObjectNN will be automatically downloaded with the training command. 
