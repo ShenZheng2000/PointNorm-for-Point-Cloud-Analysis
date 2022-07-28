@@ -2,6 +2,8 @@
 This is the official Pytorch implementation of our paper "PointNorm: Normalization is All You Need for Point Cloud Analysis"
 
 ## Updates
+- 2022/7/26: The code for the classfication on ScanObjectNN dataset has been uploaded. 
+
 - 2022/7/24: Basic instructions have been given. The complete code will be uploaded next week. 
 
 - 2022/7/15: Arxiv Link is available at: https://arxiv.org/abs/2207.06324
