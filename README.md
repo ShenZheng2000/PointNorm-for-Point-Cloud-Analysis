@@ -15,8 +15,8 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
 
 ## Key Ideas
 <p align="center">
-  <img src="https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis/blob/main/Figures/Model_Head.png" height="120">
-  <img src="https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis/blob/main/Figures/Model_WorkFlow.png" height="120">
+  <img src="https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis/blob/main/Figures/Model_Head.png" height="480">
+  <img src="https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis/blob/main/Figures/Model_WorkFlow.png" height="480">
 </p>
 
 
