@@ -98,7 +98,7 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
 - [x] Upload files for classfication at ScanObjectNN
 - [x] Upload files for segmentation at ShapeNetPart
 - [x] Upload files for classfication at ModelNet40
-- [ ] Upload files for visualization
+- [x] Upload files for visualization
 - [ ] Upload pretrained checkpoints
 - [ ] Polish readme
 
