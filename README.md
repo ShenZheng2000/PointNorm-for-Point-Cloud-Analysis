@@ -2,7 +2,9 @@
 This is the official Pytorch implementation of our paper "PointNorm: Normalization is All You Need for Point Cloud Analysis"
 
 ## Updates
-- 2022/7/28: The code for classifcation and segmentation have been uploaded. 
+- 2022/8/5: Code for visualizing loss landscape and segmentation output has been uploaded. Detailed instructions will be included in this readme files next week. 
+
+- 2022/7/28: Code for classifcation and segmentation have been uploaded. 
 
 - 2022/7/24: Basic instructions have been given. The complete code will be uploaded next week. 
 
