@@ -113,8 +113,8 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
 * Do the following modifications with the files in [Semantic Segmentation](https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis/tree/main/Semantic_Segmentation)
   - Replace [train_semseg.py](https://github.com/yanx27/Pointnet_Pointnet2_pytorch/blob/master/train_semseg.py) with [train_semseg.py](https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis/blob/main/Semantic_Segmentation/train_semseg.py)
   - Replace [test_semseg.py](https://github.com/yanx27/Pointnet_Pointnet2_pytorch/blob/master/test_semseg.py) with [test_semseg.py](https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis/blob/main/Semantic_Segmentation/test_semseg.py)
-  - Replace [models/pointnet2_sem_seg.py](https://github.com/yanx27/Pointnet_Pointnet2_pytorch/blob/master/models/pointnet2_sem_seg.py) with [pointnet2_sem_seg.py](https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis/blob/main/Semantic_Segmentation/pointnet2_sem_seg.py)
-  - Replace [models/pointnet2_utils.py](https://github.com/yanx27/Pointnet_Pointnet2_pytorch/blob/master/models/pointnet_utils.py) with [pointnet2_utils.py](https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis/blob/main/Semantic_Segmentation/pointnet2_utils.py)
+  - Replace [pointnet2_sem_seg.py](https://github.com/yanx27/Pointnet_Pointnet2_pytorch/blob/master/models/pointnet2_sem_seg.py) with [pointnet2_sem_seg.py](https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis/blob/main/Semantic_Segmentation/pointnet2_sem_seg.py)
+  - Replace [pointnet2_utils.py](https://github.com/yanx27/Pointnet_Pointnet2_pytorch/blob/master/models/pointnet_utils.py) with [pointnet2_utils.py](https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis/blob/main/Semantic_Segmentation/pointnet2_utils.py)
   - Add [data_augmentation.py](https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis/blob/main/Semantic_Segmentation/data_augmentation.py)
   
 * Download [S3DIS](http://buildingparser.stanford.edu/dataset.html) and save in `./data/s3dis/Stanford3dDataset_v1.2_Aligned_Version/`
