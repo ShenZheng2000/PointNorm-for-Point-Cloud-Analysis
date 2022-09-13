@@ -2,6 +2,14 @@
 This is the official Pytorch implementation of our paper "PointNorm: Normalization is All You Need for Point Cloud Analysis"
 
 ## Updates
+- 2022/9/15: We have revised the paper and have updated the manuscript for arxiv. Here are an non-exhaust list for the changes. 
+  - Change the format from CVF to IEEE style
+  - Add the experiments for S3DIS semantic segmentation
+  - Add Optimization Landscape Analysis
+  - Merge the figure for shape classfication and 
+  - Reformat the mathematical notations and deviations.
+  - Update the instruction on Readme (DOING).
+
 - 2022/8/5: Code for visualizing the loss landscape and the segmentation output has been uploaded. Detailed instructions will be included in this readme file next week. 
 
 - 2022/7/28: Code for classifcation and segmentation have been uploaded. 
@@ -99,6 +107,9 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
 - [x] Upload files for segmentation at ShapeNetPart
 - [x] Upload files for classfication at ModelNet40
 - [x] Upload files for visualization
+- [ ] Update the instruction for visualization
+- [ ] Update the code for semantic segmentation
+- [ ] Update 
 - [ ] Upload pretrained checkpoints
 - [ ] Polish readme
 
