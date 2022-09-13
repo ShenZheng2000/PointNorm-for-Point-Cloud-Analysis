@@ -134,8 +134,10 @@ def main():
     if not os.path.isfile(os.path.join(args.checkpoint, "last_checkpoint.pth")):
         save_args(args)
         logger = Logger(os.path.join(args.checkpoint, 'log.txt'), title="ModelNet" + args.model)
+
+        # NOTE: change names
         logger.set_names(["Epoch-Num", 'Learning-Rate',
-                          'Train-Loss', 'Train-acc-B', 'Train-acc',
+                          'Train-Loss', 'Train-acc-B', 'Train-acc', 'Grad_Pred', 'Beta_Smooth',
                           'Valid-Loss', 'Valid-acc-B', 'Valid-acc'])
     else:
         printf(f"Resuming last checkpoint from {args.checkpoint}")
@@ -204,8 +206,9 @@ def main():
             best_train_loss=best_train_loss,
             optimizer=optimizer.state_dict()
         )
+
         logger.append([epoch, optimizer.param_groups[0]['lr'],
-                       train_out["loss"], train_out["acc_avg"], train_out["acc"],
+                       train_out["loss"], train_out["acc_avg"], train_out["acc"], train_out["grad_pred_avg"], train_out["beta_smooth_avg"], 
                        test_out["loss"], test_out["acc_avg"], test_out["acc"]])
         printf(
             f"Training loss:{train_out['loss']} acc_avg:{train_out['acc_avg']}% acc:{train_out['acc']}% time:{train_out['time']}s")
@@ -230,6 +233,11 @@ def train(net, trainloader, optimizer, criterion, device):
     train_pred = []
     train_true = []
     time_cost = datetime.datetime.now()
+
+    prev_grad_pred = None
+    grad_pred_total = 0
+    beta_smooth_total = 0
+
     for batch_idx, (data, label) in enumerate(trainloader):
         data, label = data.to(device), label.to(device).squeeze()
         data = data.permute(0, 2, 1)  # so, the input data shape is [batch, 3, 1024]
@@ -237,6 +245,15 @@ def train(net, trainloader, optimizer, criterion, device):
         logits = net(data)
         loss = criterion(logits, label)
         loss.backward()
+
+        # NOTE: calulate grad_pred and beta_smooth
+        grad_pred = net.module.classifier[-1].weight.grad.clone().flatten()
+        if prev_grad_pred is not None:
+            grad_pred_total += (grad_pred - prev_grad_pred).norm(p=2).item()
+            beta_smooth_total += (grad_pred - prev_grad_pred).norm(p=1).item()
+        prev_grad_pred = grad_pred
+        # print("grad_pred_total {}, beta_smooth_total {}".format(grad_pred_total, beta_smooth_total)) 
+
         optimizer.step()
         train_loss += loss.item()
         preds = logits.max(dim=1)[1]
@@ -257,7 +274,10 @@ def train(net, trainloader, optimizer, criterion, device):
         "loss": float("%.3f" % (train_loss / (batch_idx + 1))),
         "acc": float("%.3f" % (100. * metrics.accuracy_score(train_true, train_pred))),
         "acc_avg": float("%.3f" % (100. * metrics.balanced_accuracy_score(train_true, train_pred))),
-        "time": time_cost
+        "time": time_cost,
+
+        "grad_pred_avg": float("%.3f" % (grad_pred_total / batch_idx)), 
+        "beta_smooth_avg": float("%.3f" % (beta_smooth_total / batch_idx)), 
     }
 
 
