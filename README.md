@@ -106,7 +106,7 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
   ```
   cd part_segmentation
 
-  # For PointNorm (the full-sized model), run:
+  # For PointNorm (the full-size model), run:
   python main.py --model PointNorm --point_norm True --reverse_point_norm True --local_mean True --global_std True
 
   # For PointNorm-Tiny (the lightweight model), run:
@@ -120,6 +120,7 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
   ```
   
 * Some examples.
+  ```
   python plot_ptseg.py --model PointNorm --exp_name PointNorm_7_8_v1 --angle_one 330 --angle_two 90 --id 1 # airplane
   python plot_ptseg.py --model PointNorm --exp_name PointNorm_7_8_v1 -angle_one 270 --angle_two 90 --id 500 # car
   python plot_ptseg.py --model PointNorm --exp_name PointNorm_7_8_v1 --angle_one 120 --angle_two 270 --id 1000 # chair
