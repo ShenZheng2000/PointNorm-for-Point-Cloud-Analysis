@@ -1,3 +1,7 @@
+"""
+Plot the parts.
+python plot_ptseg.py --model model31G --exp_name demo1 --id 1
+"""
 from __future__ import print_function
 import os
 import argparse
@@ -94,7 +98,7 @@ def test(args):
     target = target.squeeze(dim=0).cpu().data.numpy()   # 2048
     points = points.transpose(2, 1).squeeze(dim=0).cpu().data.numpy() #[2048,3]
     
-    # # save txt
+    # # save txt (NOTE: comment this)
     # np.savetxt(f"figures/{args.id}-point.txt", points)
     # np.savetxt(f"figures/{args.id}-target.txt", target)
     # np.savetxt(f"figures/{args.id}-predict.txt", predict)
@@ -142,11 +146,11 @@ def plot_xyz(xyz, target, angle_one, angle_two, name="figures/figure.pdf"):
 if __name__ == "__main__":
     # Training settings
     parser = argparse.ArgumentParser(description='3D Shape Part Segmentation')
-    parser.add_argument('--model', type=str, default='pointMLP') # pointMLPElite for Tiny
+    parser.add_argument('--model', type=str, default='PointNorm') 
     parser.add_argument('--id', type=int, default='1') 
-    parser.add_argument('--exp_name', type=str, default='PointMLP_7_8_v1', metavar='N',
+    parser.add_argument('--exp_name', type=str, default='PointNorm_7_8_v1', metavar='N',
                         help='Name of the experiment')
-    parser.add_argument('--no_cuda', type=bool, default=False, 
+    parser.add_argument('--no_cuda', type=bool, default=False, # NOTE: maybe adjust this
                         help='enables CUDA training')
     parser.add_argument('--model_type', type=str, default='insiou',
                         help='choose to test the best insiou/clsiou/acc model (options: insiou, clsiou, acc)')
