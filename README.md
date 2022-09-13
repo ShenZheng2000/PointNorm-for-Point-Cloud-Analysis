@@ -128,4 +128,4 @@ Please cite our paper if you find this repository helpful.
 shenzhen@andrew.cmu.edu
 
 ## Acknowledgment
-This repository is heavily based upon [PointMLP](https://github.com/ma-xu/pointMLP-pytorch). We sincerely thank the PointMLP's authors for their excellent work and kind sharing.
+This repository is heavily based upon [PointMLP](https://github.com/ma-xu/pointMLP-pytorch) and [PointNet++](https://github.com/yanx27/Pointnet_Pointnet2_pytorch) . We appreciate their excellent work and kind sharing.
