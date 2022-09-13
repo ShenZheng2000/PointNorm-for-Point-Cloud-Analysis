@@ -149,8 +149,8 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
 - [x] Upload files for classfication at ScanObjectNN
 - [x] Upload files for segmentation at ShapeNetPart
 - [x] Upload files for classfication at ModelNet40
-- [x] Upload files for visualization
 - [x] Update the code for semantic segmentation
+- [x] Upload files and instruction for visualization
 - [ ] Update the code for Standard Deviation Analysis and Optimization Landscape Analysis. 
 - [ ] Update readme
 
