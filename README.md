@@ -36,7 +36,7 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
 - torchvision 0.10
 
 ## Install
-  * Follow the step below to install the required packages. 
+  * Install the required packages. 
     ```
     # clone this repository
     git clone https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis.git
@@ -64,7 +64,7 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
 
 * Different methods use different voting strategies to promote their classification accuracy (see the paper for details). For fairness, we do not use any voting strategy in our experiments.
 
-* Run the following lines in terminal to train on ModelNet40.
+* Train on ModelNet40.
   ```
   cd classification_ModelNet40
 
@@ -77,7 +77,7 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
 
 ## Classification on ScanObjectNN
 
-* Run the following lines in terminal to train on ScanObjectNN.
+* Train on ScanObjectNN.
   ```
   cd classification_ScanObjectNN
 
@@ -87,10 +87,22 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
   # For PointNorm-Tiny (the lightweight model), run:
   python main.py --model PointNormTiny --point_norm True --reverse_point_norm True --local_mean True --global_std True --embed_dim 32 --res_expansion 0.25
   ```
+  
+* Calculate the loss landscape for model trained on ScanObjectNN to generate `loss_landscape.txt`.
+  ```
+  python lossland.py --model PointNorm --msg {the_checkpoint_message} --point_norm True --reverse_point_norm True --local_mean True --global_std True
+  ```
+  
+* Add the path for all `loss_landscape.txt` in filelist in `plot_landscape.py`
+
+* Plot the loss landscape.
+  ```
+  python plot_landscape.py
+  ```
 
 ## Part segmentation on ShapeNetPart
 
-* Run the following lines in terminal to train on ShapeNetPart.
+* Train on ShapeNetPart.
   ```
   cd part_segmentation
 
@@ -101,13 +113,13 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
   python main.py --model PointNormTiny --point_norm True --reverse_point_norm True --local_mean True --global_std True --embed_dim 32 --res_expansion 0.25
   ```
  
-* Run the following lines in terminal to visualize the part segmentation result on ShapeNetPart.
+* Visualize the part segmentation result on ShapeNetPart.
   ```
   # For result visualization, run:
   python plot_ptseg.py --model {PointNorm/PointNormTiny} --exp_name {your_checkpoint_name} --angle_one {your_elevation_angle} --angle_two {your_azimuth_angle} --id {the_object_id}
   ```
   
-* Following are some examples
+* Some examples.
   python plot_ptseg.py --model PointNorm --exp_name PointNorm_7_8_v1 --angle_one 330 --angle_two 90 --id 1 # airplane
   python plot_ptseg.py --model PointNorm --exp_name PointNorm_7_8_v1 -angle_one 270 --angle_two 90 --id 500 # car
   python plot_ptseg.py --model PointNorm --exp_name PointNorm_7_8_v1 --angle_one 120 --angle_two 270 --id 1000 # chair
@@ -124,7 +136,7 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
   git clone https://github.com/yanx27/Pointnet_Pointnet2_pytorch.git
   ```
   
-* Do the following modifications with the files in [Semantic Segmentation](https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis/tree/main/Semantic_Segmentation)
+* Do the following modifications.
   - Replace [train_semseg.py](https://github.com/yanx27/Pointnet_Pointnet2_pytorch/blob/master/train_semseg.py) with [train_semseg.py](https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis/blob/main/Semantic_Segmentation/train_semseg.py)
   - Replace [test_semseg.py](https://github.com/yanx27/Pointnet_Pointnet2_pytorch/blob/master/test_semseg.py) with [test_semseg.py](https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis/blob/main/Semantic_Segmentation/test_semseg.py)
   - Replace [pointnet2_sem_seg.py](https://github.com/yanx27/Pointnet_Pointnet2_pytorch/blob/master/models/pointnet2_sem_seg.py) with [pointnet2_sem_seg.py](https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis/blob/main/Semantic_Segmentation/pointnet2_sem_seg.py)
@@ -133,7 +145,7 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
   
 * Download [S3DIS](http://buildingparser.stanford.edu/dataset.html) and save in `./data/s3dis/Stanford3dDataset_v1.2_Aligned_Version/`
 
-* Process S3DIS using the following command (This process might takes 10-20 minutes, so please be patient.)
+* Process S3DIS (this might takes 10-20 minutes, so be patient.)
   ```
   cd data_utils
   python collect_indoor3d_data.py
@@ -143,12 +155,12 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
 
 * Go to `train_semseg.py` and `test_semseg.py`, change root to the path of the data folder.
 
-* For training, run:
+* Train on S3DIS
   ```
   python train_semseg.py --model pointnet2_sem_seg --log_dir {name_for_your_log_dir}
   ```
  
-* For testing, run
+* Test on S3DIS
   ```
   python test_semseg.py --log_dir {name_for_your_log_dir} --visual # with visualization
   ```
@@ -156,6 +168,7 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
 * Double check the`.obj` files in `./log/sem_seg/{name_for_your_log_dir}/visual/`. 
 
 * Visualize the semantic segmentation output using [MeshLab](https://www.meshlab.net/).
+
 
 
 ## TODO-List
