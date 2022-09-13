@@ -101,7 +101,7 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
   python main.py --model PointNormTiny --point_norm True --reverse_point_norm True --local_mean True --global_std True --embed_dim 32 --res_expansion 0.25
   ```
   
-## Semantic Segmentation
+## Semantic Segmentation on S3DIS
 
 * Due to a limited amount of GPUs, we only examine PointNet++ (w/ DualNorm) on semantic segmentation tasks. If we have more GPUs in the future, we will try PointNorm. 
 
@@ -110,12 +110,12 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
   git clone https://github.com/yanx27/Pointnet_Pointnet2_pytorch.git
   ```
   
-* Do the following changes with my updated version. 
-  - [train_semseg.py](https://github.com/yanx27/Pointnet_Pointnet2_pytorch/blob/master/train_semseg.py) to train_semseg.py
-  - [test_semseg.py](https://github.com/yanx27/Pointnet_Pointnet2_pytorch/blob/master/test_semseg.py) to test_semseg.py
-  - [models/pointnet2_sem_seg.py](https://github.com/yanx27/Pointnet_Pointnet2_pytorch/blob/master/models/pointnet2_sem_seg.py) to pointnet2_sem_seg.py
-  - [models/pointnet2_utils.py](https://github.com/yanx27/Pointnet_Pointnet2_pytorch/blob/master/models/pointnet_utils.py) to pointnet2_utils.py
-  - Add [data_augmentation.py]
+* Do the following modifications with the files in [Semantic Segmentation](https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis/tree/main/Semantic_Segmentation)
+  - Replace [train_semseg.py](https://github.com/yanx27/Pointnet_Pointnet2_pytorch/blob/master/train_semseg.py) with [train_semseg.py](https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis/blob/main/Semantic_Segmentation/train_semseg.py)
+  - Replace [test_semseg.py](https://github.com/yanx27/Pointnet_Pointnet2_pytorch/blob/master/test_semseg.py) with [test_semseg.py](https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis/blob/main/Semantic_Segmentation/test_semseg.py)
+  - Replace [models/pointnet2_sem_seg.py](https://github.com/yanx27/Pointnet_Pointnet2_pytorch/blob/master/models/pointnet2_sem_seg.py) with [pointnet2_sem_seg.py](https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis/blob/main/Semantic_Segmentation/pointnet2_sem_seg.py)
+  - Replace [models/pointnet2_utils.py](https://github.com/yanx27/Pointnet_Pointnet2_pytorch/blob/master/models/pointnet_utils.py) with [pointnet2_utils.py](https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis/blob/main/Semantic_Segmentation/pointnet2_utils.py)
+  - Add [data_augmentation.py](https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis/blob/main/Semantic_Segmentation/data_augmentation.py)
   
 * Download [S3DIS](http://buildingparser.stanford.edu/dataset.html) and save in `./data/s3dis/Stanford3dDataset_v1.2_Aligned_Version/`
 
