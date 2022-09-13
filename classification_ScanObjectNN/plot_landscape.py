@@ -54,12 +54,12 @@ def main(filename):
 
 
 if __name__ == '__main__':
-    filelist = ["/root/autodl-tmp/classification_ScanObjectNN/checkpoints/pointMLP_2_2-20220701131108/loss_landscape.txt", # Baseline
-                "/root/autodl-tmp/classification_ScanObjectNN/checkpoints/pointMLP_2_2-20220701222849/loss_landscape.txt", # GMGS
-                "/root/autodl-tmp/classification_ScanObjectNN/checkpoints/pointMLP_2_2-20220702010543/loss_landscape.txt", # GMLS
-                "/root/autodl-tmp/classification_ScanObjectNN/checkpoints/pointMLP_2_2-20220701235837/loss_landscape.txt", # LMLS
-                "/root/autodl-tmp/classification_ScanObjectNN/checkpoints/pointMLP_2_2-20220702224320/loss_landscape.txt", # No_PN
-                "/root/autodl-tmp/classification_ScanObjectNN/checkpoints/pointMLP_2_2-20220703091821/loss_landscape.txt"] # No_RPN
+    filelist = ["/root/autodl-tmp/classification_ScanObjectNN/checkpoints/PointNorm_2_2-20220701131108/loss_landscape.txt", # Baseline
+                "/root/autodl-tmp/classification_ScanObjectNN/checkpoints/PointNorm_2_2-20220701222849/loss_landscape.txt", # GMGS
+                "/root/autodl-tmp/classification_ScanObjectNN/checkpoints/PointNorm_2_2-20220702010543/loss_landscape.txt", # GMLS
+                "/root/autodl-tmp/classification_ScanObjectNN/checkpoints/PointNorm_2_2-20220701235837/loss_landscape.txt", # LMLS
+                "/root/autodl-tmp/classification_ScanObjectNN/checkpoints/PointNorm_2_2-20220702224320/loss_landscape.txt", # No_PN
+                "/root/autodl-tmp/classification_ScanObjectNN/checkpoints/PointNorm_2_2-20220703091821/loss_landscape.txt"] # No_RPN
 
     for filename in filelist:
         main(filename)
