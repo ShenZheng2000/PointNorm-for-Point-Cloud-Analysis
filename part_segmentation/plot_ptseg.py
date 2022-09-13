@@ -1,7 +1,3 @@
-"""
-Plot the parts.
-python plot_ptseg.py --model model31G --exp_name demo1 --id 1
-"""
 from __future__ import print_function
 import os
 import argparse
