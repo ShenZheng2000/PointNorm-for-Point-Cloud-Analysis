@@ -6,7 +6,7 @@ This is the official Pytorch implementation of our paper "PointNorm: Dual Normal
   - Change the format from CVF to IEEE style
   - Add the experiments for S3DIS semantic segmentation
   - Add Optimization Landscape Analysis
-  - Merge the figure for shape classfication and 
+  - Merge the figure for shape classfication and semantic segmentaion.
   - Reformat the mathematical notations and deviations.
   - Update the instruction on Readme (DOING).
 
