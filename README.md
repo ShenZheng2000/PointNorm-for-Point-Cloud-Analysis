@@ -64,7 +64,7 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
 
 * Different methods use different voting strategies to promote their classification accuracy (see the paper for details). For fairness, we do not use any voting strategy in our experiments.
 
-* With all this in mind, you can run the following lines in terminal.
+* Run the following lines in terminal to train on ModelNet40.
   ```
   cd classification_ModelNet40
 
@@ -77,7 +77,7 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
 
 ## Classification on ScanObjectNN
 
-* Run the following lines in terminal.
+* Run the following lines in terminal to train on ScanObjectNN.
   ```
   cd classification_ScanObjectNN
 
@@ -90,7 +90,7 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
 
 ## Part segmentation on ShapeNetPart
 
-* Run the following lines in terminal.
+* Run the following lines in terminal to train on ShapeNetPart.
   ```
   cd part_segmentation
 
@@ -99,6 +99,20 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
 
   # For PointNorm-Tiny (the lightweight model), run:
   python main.py --model PointNormTiny --point_norm True --reverse_point_norm True --local_mean True --global_std True --embed_dim 32 --res_expansion 0.25
+  ```
+ 
+* Run the following lines in terminal to visualize the part segmentation result on ShapeNetPart.
+  ```
+  # For result visualization, run:
+  python plot_ptseg.py --model {PointNorm/PointNormTiny} --exp_name {your_checkpoint_name} --angle_one {your_elevation_angle} --angle_two {your_azimuth_angle} --id {the_object_id}
+  ```
+  
+* Following are some examples
+  python plot_ptseg.py --model PointNorm --exp_name PointNorm_7_8_v1 --angle_one 330 --angle_two 90 --id 1 # airplane
+  python plot_ptseg.py --model PointNorm --exp_name PointNorm_7_8_v1 -angle_one 270 --angle_two 90 --id 500 # car
+  python plot_ptseg.py --model PointNorm --exp_name PointNorm_7_8_v1 --angle_one 120 --angle_two 270 --id 1000 # chair
+  python plot_ptseg.py --model PointNorm --exp_name PointNorm_7_8_v1 --angle_one 90 --angle_two 270 --id 1500 # lamp
+  python plot_ptseg.py --model PointNorm --exp_name PointNorm_7_8_v1 --angle_one 90 --angle_two 270 --id 2000 # skateboard
   ```
   
 ## Semantic Segmentation on S3DIS
