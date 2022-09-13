@@ -100,6 +100,49 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
   # For PointNorm-Tiny (the lightweight model), run:
   python main.py --model PointNormTiny --point_norm True --reverse_point_norm True --local_mean True --global_std True --embed_dim 32 --res_expansion 0.25
   ```
+  
+## Semantic Segmentation
+
+* Due to a limited amount of GPUs, we only examine PointNet++ (w/ DualNorm) on semantic segmentation tasks. If we have more GPUs in the future, we will try PointNorm. 
+
+* Clone the following repository
+  ```
+  git clone https://github.com/yanx27/Pointnet_Pointnet2_pytorch.git
+  ```
+  
+* Do the following changes with my updated version. 
+  - [train_semseg.py](https://github.com/yanx27/Pointnet_Pointnet2_pytorch/blob/master/train_semseg.py) to train_semseg.py
+  - [test_semseg.py](https://github.com/yanx27/Pointnet_Pointnet2_pytorch/blob/master/test_semseg.py) to test_semseg.py
+  - [models/pointnet2_sem_seg.py](https://github.com/yanx27/Pointnet_Pointnet2_pytorch/blob/master/models/pointnet2_sem_seg.py) to pointnet2_sem_seg.py
+  - [models/pointnet2_utils.py](https://github.com/yanx27/Pointnet_Pointnet2_pytorch/blob/master/models/pointnet_utils.py) to pointnet2_utils.py
+  - Add [data_augmentation.py]
+  
+* Download [S3DIS](http://buildingparser.stanford.edu/dataset.html) and save in `./data/s3dis/Stanford3dDataset_v1.2_Aligned_Version/`
+
+* Process S3DIS using the following command (This process might takes 10-20 minutes, so please be patient.)
+  ```
+  cd data_utils
+  python collect_indoor3d_data.py
+  ```
+
+* Find you data folder in `./data/stanford_indoor3d/`
+
+* Go to `train_semseg.py` and `test_semseg.py`, change root to the path of the data folder.
+
+* For training, run:
+  ```
+  python train_semseg.py --model pointnet2_sem_seg --log_dir {name_for_your_log_dir}
+  ```
+ 
+* For testing, run
+  ```
+  python test_semseg.py --log_dir {name_for_your_log_dir} --visual # with visualization
+  ```
+
+* Double check the`.obj` files in `./log/sem_seg/{name_for_your_log_dir}/visual/`. 
+
+* Visualize the semantic segmentation output using [MeshLab](https://www.meshlab.net/).
+
 
 ## TODO-List
 - [x] Upload readme with basic instructions
@@ -107,11 +150,9 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
 - [x] Upload files for segmentation at ShapeNetPart
 - [x] Upload files for classfication at ModelNet40
 - [x] Upload files for visualization
-- [ ] Update the instruction for visualization
-- [ ] Update the code for semantic segmentation
-- [ ] Update 
-- [ ] Upload pretrained checkpoints
-- [ ] Polish readme
+- [x] Update the code for semantic segmentation
+- [ ] Update the code for Standard Deviation Analysis and Optimization Landscape Analysis. 
+- [ ] Update readme
 
 ## BibTeX
 Please cite our paper if you find this repository helpful.
