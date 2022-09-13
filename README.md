@@ -47,18 +47,6 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
     pip install pointnet2_ops_lib/.
     ```
 
-## Datasets
-* ModelNet40 and ScanObjectNN will be automatically downloaded with the training command. 
-
-* ShapeNetPart needs to be prepared in the following way.
-  ```
-  cd part_segmentation
-  mkdir data
-  cd data
-  wget https://shapenet.cs.stanford.edu/media/shapenetcore_partanno_segmentation_benchmark_v0_normal.zip --no-check-certificate
-  unzip shapenetcore_partanno_segmentation_benchmark_v0_normal.zip
-  ```
-
 ## Classification on ModelNet40
 * The results at ModelNet40 are volatile. Running the same model with different seeds leads to significantly different scores. To alleviate the randomness, you may consider training the model with different seeds for 2-4 times and report the average accuracy as your score. 
 
@@ -101,6 +89,14 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
   ```
 
 ## Part segmentation on ShapeNetPart
+* Prepare ShapeNetPart Dataset.
+  ```
+  cd part_segmentation
+  mkdir data
+  cd data
+  wget https://shapenet.cs.stanford.edu/media/shapenetcore_partanno_segmentation_benchmark_v0_normal.zip --no-check-certificate
+  unzip shapenetcore_partanno_segmentation_benchmark_v0_normal.zip
+  ```
 
 * Train on ShapeNetPart.
   ```
@@ -171,6 +167,29 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
 * Visualize the semantic segmentation output using [MeshLab](https://www.meshlab.net/).
 
 
+## Optimization Landscape Analysis
+* Train PointNorm variants (w or w/o DualNorm) with different learning rates.
+  ```
+  cd classification_ScanObjectNN
+  
+  # With DualNorm (lr = 0.01, 0.02, 0.005)
+  python main_draw.py --learning_rate 0.01 --model PointNorm_2_2 --point_norm True --reverse_point_norm True --local_mean True --global_std True
+  python main_draw.py --learning_rate 0.02 --model PointNorm_2_2 --point_norm True --reverse_point_norm True --local_mean True --global_std True
+  python main_draw.py --learning_rate 0.005 --model PointNorm_2_2 --point_norm True --reverse_point_norm True --local_mean True --global_std True
+  
+  # Without DualNorm (lr = 0.01, 0.02, 0.005)
+  python main_draw.py --learning_rate 0.01 --model PointNorm_2_2 --local_mean True --global_std True
+  python main_draw.py --learning_rate 0.02 --model PointNorm_2_2 --local_mean True --global_std True
+  python main_draw.py --learning_rate 0.005 --model PointNorm_2_2 --local_mean True --global_std True  
+  ```
+* Record the corresponding `log.out` in `vis_files/plot_comparison.py`.
+  
+* Visualize the result.
+  ```
+  cd ..
+  cd vis_files
+  python plot_comparison.py
+  ```
 
 ## TODO-List
 - [x] Upload readme with basic instructions
@@ -180,7 +199,7 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
 - [x] Update the code for semantic segmentation
 - [x] Upload files and instruction for visualization
 - [x] Update the code for loss landscape visualization. 
-- [ ] Update the code for Standard Deviation Analysis and Optimization Landscape Analysis. 
+- [x] Update the code for Optimization Landscape Analysis. 
 - [ ] Update readme
 
 ## BibTeX
