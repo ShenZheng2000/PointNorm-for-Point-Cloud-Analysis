@@ -1,5 +1,5 @@
 # PointNorm-for-Point-Cloud-Analysis
-This is the official Pytorch implementation of our paper "PointNorm: Normalization is All You Need for Point Cloud Analysis"
+This is the official Pytorch implementation of our paper "PointNorm: Dual Normalization is All You Need for Point Cloud Analysis"
 
 ## Updates
 - 2022/9/15: We have revised the paper and have updated the manuscript for arxiv. Here are an non-exhaust list for the changes. 
