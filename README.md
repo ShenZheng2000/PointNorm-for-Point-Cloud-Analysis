@@ -200,7 +200,7 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
 - [x] Upload files and instruction for visualization
 - [x] Update the code for loss landscape visualization. 
 - [x] Update the code for Optimization Landscape Analysis. 
-- [ ] Update readme
+- [x] Update readme
 
 ## BibTeX
 Please cite our paper if you find this repository helpful.
