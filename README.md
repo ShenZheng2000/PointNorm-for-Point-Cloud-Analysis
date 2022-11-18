@@ -206,7 +206,7 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
 Please cite our paper if you find this repository helpful.
 ```
 @article{zheng2022pointnorm,
-  title={PointNorm: Normalization is All You Need for Point Cloud Analysis},
+  title={PointNorm: Dual Normalization is All You Need for Point Cloud Analysis},
   author={Zheng, Shen and Pan, Jinqian and Lu, Changjie and Gupta, Gaurav},
   journal={arXiv preprint arXiv:2207.06324},
   year={2022}
