@@ -2,6 +2,8 @@
 This is the official Pytorch implementation of our paper "PointNorm: Dual Normalization is All You Need for Point Cloud Analysis"
 
 ## Updates
+- 2023/4/7: Our paper is accepted by IJCNN 2023!
+
 - 2022/9/15: We have revised the paper and have updated the manuscript for arxiv. Here is a non-exhausted list of the change. 
   - Change the format from CVF to IEEE style
   - Add the experiments for S3DIS semantic segmentation
