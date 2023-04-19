@@ -31,6 +31,9 @@ Point cloud analysis is challenging due to the irregularity of the point cloud d
 ## Workflow
 ![workflow](https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis/blob/main/Figures/Model_WorkFlow.png)
 
+## Standard Deviation Analysis
+![workflow](https://github.com/ShenZheng2000/PointNorm-for-Point-Cloud-Analysis/blob/main/Figures/Model_Alpha.png)
+
 ## Dependencies
 - Python 3.8
 - Pytorch 1.9
